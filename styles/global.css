@@ -54,14 +54,14 @@ body {
 header {
     background: #343a40;
     color: white;
-    padding: calc(var(--tg-content-safe-area-inset-top) + 2rem) 1rem 1rem;
+    padding: calc(var(--tg-safe-area-inset-top, 0px) + 2rem) 1rem 1rem;
     text-align: center;
 }
 
 .container {
     max-width: 800px;
     margin: 2rem auto;
-    padding: 1rem;
+    padding: calc(var(--tg-content-safe-area-inset-top, 0px) + 1rem) 1rem 1rem;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
