@@ -57,6 +57,7 @@ header {
 
 .container {
     max-width: 800px;
+    margin: calc(var(--tg-content-safe-area-inset-top, 0px) + 2rem) auto 2rem;
     padding: 1rem;
     background: white;
     border-radius: 1rem;
