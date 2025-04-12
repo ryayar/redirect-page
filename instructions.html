@@ -388,7 +388,7 @@
         const playPauseBtn = wrapper.querySelector('.play-pause');
         const fullscreenBtn = wrapper.querySelector('.fullscreen');
 
-        function togglePlay() {
+        playPauseBtn.addEventListener('click', () => {
             if (video.paused) {
                 video.play();
                 playPauseBtn.textContent = '⏸';
@@ -396,22 +396,9 @@
                 video.pause();
                 playPauseBtn.textContent = '▶';
             }
-        }
-
-        // По кнопке ▶ / ⏸
-        playPauseBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // чтобы не срабатывал клик по видео
-            togglePlay();
         });
 
-        // По клику на само видео
-        video.addEventListener('click', () => {
-            togglePlay();
-        });
-
-        // Кнопка полноэкранного режима
-        fullscreenBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
+        fullscreenBtn.addEventListener('click', () => {
             if (video.requestFullscreen) {
                 video.requestFullscreen();
             } else if (video.webkitRequestFullscreen) {
@@ -421,7 +408,6 @@
             }
         });
 
-        // Возврат иконки ▶ после окончания видео
         video.addEventListener('ended', () => {
             playPauseBtn.textContent = '▶';
         });
