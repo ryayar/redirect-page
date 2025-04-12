@@ -1,167 +1,230 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN Инструкции</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
-      color: #333;
-    }
-    header {
-      background: #343a40;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    .button-group button {
-      margin: 0.5rem 0.5rem 1rem 0;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      border-radius: 6px;
-      background: #007bff;
-      color: white;
-    }
-    .button-group button:hover {
-      background: #0056b3;
-    }
-    .hidden {
-      display: none;
-    }
-    .video-section {
-      display: none;
-    }
-    .video {
-      margin-bottom: 1.5rem;
-    }
-    video {
-      width: 100%;
-      border-radius: 8px;
-    }
-    h2 {
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>VPN Инструкции</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #343a40;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .button-group button {
+            margin: 0.5rem 0.5rem 1rem 0;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background: #007bff;
+            color: white;
+        }
+
+        .button-group button:hover {
+            background: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .video-section {
+            display: none;
+        }
+
+        .video {
+            margin-bottom: 1.5rem;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+                    const tg = window.Telegram.WebApp;
+
+                    tg.ready();
+                    tg.expand();
+                    tg.disableVerticalSwipes();
+
+                    if (tg.requestFullscreen) {
+                        tg.requestFullscreen();
+                        window.Telegram.WebApp.disableClosingConfirmation();
+                    } else {
+                        tg.expand();
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
 </head>
 <body>
-  <header>
+<header>
     <h1>Инструкции по настройке VPN</h1>
-  </header>
-  <div class="container">
+</header>
+<div class="container">
     <h2>Шаг 1: Выберите вашу платформу</h2>
     <div class="button-group">
-      <button onclick="selectPlatform('ios')">iOS</button>
-      <button onclick="selectPlatform('android')">Android</button>
-      <button onclick="selectPlatform('pc')">ПК (Windows)</button>
+        <button onclick="selectPlatform('ios')">iOS</button>
+        <button onclick="selectPlatform('android')">Android</button>
+        <button onclick="selectPlatform('pc')">ПК (Windows)</button>
     </div>
 
     <div id="app-description" class="hidden">
-      <h2>Шаг 2: Выберите приложение</h2>
-      <p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для большинства пользователей.</p>
-      <p><strong>V2Box</strong> — более продвинутое приложение с гибкими настройками для опытных пользователей.</p>
-      <div class="button-group" id="app-buttons"></div>
+        <h2>Шаг 2: Выберите приложение</h2>
+        <p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для большинства
+            пользователей.</p>
+        <p><strong>V2Box</strong> — более продвинутое приложение с гибкими настройками для опытных пользователей.</p>
+        <div class="button-group" id="app-buttons"></div>
     </div>
 
     <div id="instructions">
-      <div id="hiddifi-ios" class="video-section">
-        <h2>Hiddifi iOS</h2>
-        <div class="video"><video controls src="videos/hiddifi-ios-1.mp4"></video></div>
-        <div class="video"><video controls src="videos/hiddifi-ios-2.mp4"></video></div>
-        <div class="video"><video controls src="videos/hiddifi-ios-3.mp4"></video></div>
-      </div>
+        <div id="hiddifi-ios" class="video-section">
+            <h2>Hiddifi iOS</h2>
+            <div class="video">
+                <video controls src="videos/hiddifi-ios-1.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/hiddifi-ios-2.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/hiddifi-ios-3.mp4"></video>
+            </div>
+        </div>
 
-      <div id="v2box-ios" class="video-section">
-        <h2>V2Box iOS</h2>
-        <div class="video"><video controls src="videos/v2box-ios-1.mp4"></video></div>
-        <div class="video"><video controls src="videos/v2box-ios-2.mp4"></video></div>
-        <div class="video"><video controls src="videos/v2box-ios-3.mp4"></video></div>
-      </div>
+        <div id="v2box-ios" class="video-section">
+            <h2>V2Box iOS</h2>
+            <div class="video">
+                <video controls src="videos/v2box-ios-1.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/v2box-ios-2.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/v2box-ios-3.mp4"></video>
+            </div>
+        </div>
 
-      <div id="hiddifi-android" class="video-section">
-        <h2>Hiddifi Android</h2>
-        <div class="video"><video controls src="videos/hiddifi-android-1.mp4"></video></div>
-        <div class="video"><video controls src="videos/hiddifi-android-2.mp4"></video></div>
-        <div class="video"><video controls src="videos/hiddifi-android-3.mp4"></video></div>
-      </div>
+        <div id="hiddifi-android" class="video-section">
+            <h2>Hiddifi Android</h2>
+            <div class="video">
+                <video controls src="videos/hiddifi-android-1.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/hiddifi-android-2.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/hiddifi-android-3.mp4"></video>
+            </div>
+        </div>
 
-      <div id="v2box-android" class="video-section">
-        <h2>V2Box Android</h2>
-        <div class="video"><video controls src="videos/v2box-android-1.mp4"></video></div>
-        <div class="video"><video controls src="videos/v2box-android-2.mp4"></video></div>
-        <div class="video"><video controls src="videos/v2box-android-3.mp4"></video></div>
-      </div>
+        <div id="v2box-android" class="video-section">
+            <h2>V2Box Android</h2>
+            <div class="video">
+                <video controls src="videos/v2box-android-1.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/v2box-android-2.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/v2box-android-3.mp4"></video>
+            </div>
+        </div>
 
-      <div id="hiddifi-pc" class="video-section">
-        <h2>Hiddifi ПК</h2>
-        <div class="video"><video controls src="videos/hiddifi-pc-1.mp4"></video></div>
-        <div class="video"><video controls src="videos/hiddifi-pc-2.mp4"></video></div>
-      </div>
+        <div id="hiddifi-pc" class="video-section">
+            <h2>Hiddifi ПК</h2>
+            <div class="video">
+                <video controls src="videos/hiddifi-pc-1.mp4"></video>
+            </div>
+            <div class="video">
+                <video controls src="videos/hiddifi-pc-2.mp4"></video>
+            </div>
+        </div>
 
-      <div id="region-ios" class="video-section">
-        <h2>Смена региона AppStore</h2>
-        <div class="video"><video controls src="videos/change-region-ios.mp4"></video></div>
-      </div>
+        <div id="region-ios" class="video-section">
+            <h2>Смена региона AppStore</h2>
+            <div class="video">
+                <video controls src="videos/change-region-ios.mp4"></video>
+            </div>
+        </div>
     </div>
 
-      <a href="settings://">Открыть настройки</a>
-  </div>
+    <a href="settings://">Открыть настройки</a>
+</div>
 
-  <script>
+<script>
     const appOptions = {
-      ios: [
-        { label: 'Hiddifi', value: 'hiddifi-ios' },
-        { label: 'V2Box', value: 'v2box-ios' },
-        { label: 'Смена региона AppStore', value: 'region-ios' }
-      ],
-      android: [
-        { label: 'Hiddifi', value: 'hiddifi-android' },
-        { label: 'V2Box', value: 'v2box-android' }
-      ],
-      pc: [
-        { label: 'Hiddifi', value: 'hiddifi-pc' }
-      ]
+        ios: [
+            {label: 'Hiddifi', value: 'hiddifi-ios'},
+            {label: 'V2Box', value: 'v2box-ios'},
+            {label: 'Смена региона AppStore', value: 'region-ios'}
+        ],
+        android: [
+            {label: 'Hiddifi', value: 'hiddifi-android'},
+            {label: 'V2Box', value: 'v2box-android'}
+        ],
+        pc: [
+            {label: 'Hiddifi', value: 'hiddifi-pc'}
+        ]
     };
 
     function selectPlatform(platform) {
-      const appDesc = document.getElementById('app-description');
-      const appButtons = document.getElementById('app-buttons');
-      appButtons.innerHTML = '';
+        const appDesc = document.getElementById('app-description');
+        const appButtons = document.getElementById('app-buttons');
+        appButtons.innerHTML = '';
 
-      if (appOptions[platform]) {
-        appOptions[platform].forEach(app => {
-          const btn = document.createElement('button');
-          btn.textContent = app.label;
-          btn.onclick = () => showInstructions(app.value);
-          appButtons.appendChild(btn);
-        });
-        appDesc.classList.remove('hidden');
-      } else {
-        appDesc.classList.add('hidden');
-      }
+        if (appOptions[platform]) {
+            appOptions[platform].forEach(app => {
+                const btn = document.createElement('button');
+                btn.textContent = app.label;
+                btn.onclick = () => showInstructions(app.value);
+                appButtons.appendChild(btn);
+            });
+            appDesc.classList.remove('hidden');
+        } else {
+            appDesc.classList.add('hidden');
+        }
 
-      // Скрыть все видеоинструкции при смене платформы
-      document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
+        // Скрыть все видеоинструкции при смене платформы
+        document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
     }
 
     function showInstructions(id) {
-      document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
-      const section = document.getElementById(id);
-      if (section) section.style.display = 'block';
+        document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
+        const section = document.getElementById(id);
+        if (section) section.style.display = 'block';
     }
-  </script>
+</script>
 </body>
 </html>
