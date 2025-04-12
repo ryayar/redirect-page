@@ -371,9 +371,9 @@
 
             const id = section.id.toLowerCase();
             if (id.includes('hiddify')) {
-                btn.href = `hiddify://import/${decodeURIComponent(configParam)}`;
+                btn.href = `https://ryayar.github.io/redirect-page?config=hiddify://import/${decodeURIComponent(configParam)}`;
             } else if (id.includes('v2box')) {
-                btn.href = `${decodeURIComponent(configParam)}`;
+                btn.href = `https://ryayar.github.io/redirect-page?config=${decodeURIComponent(configParam)}`;
             } else {
                 // fallback (например, для region-ios)
                 btn.href = `${decodeURIComponent(configParam)}`;
