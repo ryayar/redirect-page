@@ -37,7 +37,7 @@
     <div class="button-group">
         <button onclick="selectPlatform('ios')">iOS</button>
         <button onclick="selectPlatform('android')">Android</button>
-        <button onclick="selectPlatform('pc')">ПК (Windows)</button>
+        <button onclick="selectPlatform('pc')">ПК</button>
     </div>
 
     <div id="app-description" class="hidden">
@@ -51,21 +51,36 @@
         <div id="hiddify-ios" class="video-section">
             <h2>Hiddify iOS</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/ios-hiddify-button.mp4">Самый оптимальный вариант</video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-hiddify-button.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
                 <div class="action-container">
-                    <p class="important-text">ВАЖНО!<br><br>Для скачивания Hiddify, необходимо сменить регион AppStore</p>
-                    <a href="https://example.com" class="action-button">Подключить VPN</a>
+                    <p class="important-text">ВАЖНО!<br><br>Для скачивания Hiddify, необходимо сменить регион AppStore
+                    </p>
+                    <a href="https://apps.apple.com/app/id6596777532" class="action-button-download">Скачать Hiddify</a>
+                    <a href="hiddify://import/" class="action-button-connect">Подключить VPN</a>
                 </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-ios')">Показать другие варианты</button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-ios')">Показать другие варианты
+            </button>
             <div class="other-videos">
-                <div class="video">
-                    <video controls src="./videos/ios-hiddify-link.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-hiddify-link.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <div class="video">
-                    <video controls src="./videos/ios-hiddify-qr.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-hiddify-qr.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,19 +89,39 @@
         <div id="v2box-ios" class="video-section">
             <h2>V2Box iOS</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/ios-v2box-button.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-v2box-button.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <a href="https://example.com" class="action-button">Подключить VPN</a>
+
+                <div class="action-container">
+                    <a href="https://apps.apple.com/app/id6446814690" class="action-button-download">Скачать V2Box</a>
+                    <a href="" class="action-button-connect">Подключить VPN</a>
+                </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-ios')">Показать другие варианты</button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-ios')">Показать другие варианты
+            </button>
             <div class="other-videos">
-                <div class="video">
-                    <video controls src="./videos/ios-v2box-link.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-v2box-link.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <div class="video">
-                    <video controls src="./videos/ios-v2box-qr.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-v2box-qr.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -94,19 +129,41 @@
         <div id="hiddify-android" class="video-section">
             <h2>Hiddify Android</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/android-hiddify-button.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-hiddify-button.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <a href="https://example.com" class="action-button">Подключить VPN</a>
+
+                <div class="action-container">
+                    <a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Android-universal.apk"
+                       class="action-button-download">Скачать Hiddify</a>
+                    <a href="hiddify://import/" class="action-button-connect">Подключить VPN</a>
+                </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-android')">Показать другие варианты</button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-android')">Показать другие
+                варианты
+            </button>
             <div class="other-videos">
-                <div class="video">
-                    <video controls src="./videos/android-hiddify-link.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-hiddify-link.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <div class="video">
-                    <video controls src="./videos/android-hiddify-qr.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-hiddify-qr.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -114,22 +171,39 @@
         <div id="v2box-android" class="video-section">
             <h2>V2Box Android</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/android-v2box-button.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-v2box-button.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <a href="https://example.com" class="action-button">Подключить VPN</a>
+
+                <div class="action-container">
+                    <a href="./videos/V2Box+-+V2ray+Client_2.3.0.apk" class="action-button-download">Скачать V2Box</a>
+                    <a href="" class="action-button-connect">Подключить VPN</a>
+                </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-android')">Показать другие варианты</button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-android')">Показать другие варианты
+            </button>
             <div class="other-videos">
-                <div class="video">
-                    <video controls src="./videos/android-v2box-link.mp4"></video>
+
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-v2box-link.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <div class="video">
-                    <video controls src="./videos/android-v2box-qr.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/android-v2box-qr.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <div class="application">
-                    <a href="./videos/V2Box+-+V2ray+Client_2.3.0.apk">Приложение V2Box</a>
-                </div>
+
             </div>
         </div>
 
@@ -137,15 +211,31 @@
         <div id="hiddify-pc" class="video-section">
             <h2>Hiddify ПК</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/pc-hiddify-button.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/pc-hiddify-button.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <a href="https://example.com" class="action-button">Подключить VPN</a>
+                <div class="action-container">
+                    <a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe"
+                       class="action-button-download">Скачать для Windows</a>
+                    <a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-MacOS-Installer.pkg"
+                       class="action-button-download">Скачать для MacOS</a>
+                    <a href="https://hiddify.com/" class="action-button-download">Скачать для Linux</a>
+                    <a href="hiddify://import/" class="action-button-connect">Подключить VPN</a>
+                </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-pc')">Показать другие варианты</button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-pc')">Показать другие варианты
+            </button>
             <div class="other-videos">
-                <div class="video">
-                    <video controls src="./videos/pc-hiddify-link.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/pc-hiddify-link.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,10 +244,18 @@
         <div id="region-ios" class="video-section">
             <h2>Смена региона AppStore</h2>
             <div class="main-video-container">
-                <div class="video main-video">
-                    <video controls src="./videos/ios-change-region.mp4"></video>
+                <div class="video main-video custom-video-wrapper">
+                    <video src="./videos/ios-change-region.mp4" muted></video>
+                    <div class="custom-controls">
+                        <button class="play-pause">▶</button>
+                        <button class="fullscreen">⛶</button>
+                    </div>
                 </div>
-                <a href="https://example.com" class="action-button">Подключить VPN</a>
+                <div class="action-container">
+                    <p>Подробная инструкция по смене региона AppStore</p>
+                    <a href="https://apps.apple.com/app/id6596777532" class="action-button-download">Скачать Hiddify</a>
+                    <a href="hiddify://import/" class="action-button-connect">Подключить VPN</a>
+                </div>
             </div>
             <!-- Нет других видео, поэтому кнопка не нужна -->
         </div>
@@ -167,16 +265,16 @@
 <script>
     const appOptions = {
         ios: [
-            { label: 'Hiddify', value: 'hiddify-ios' },
-            { label: 'V2Box', value: 'v2box-ios' },
-            { label: 'Смена региона AppStore', value: 'region-ios' }
+            {label: 'Hiddify', value: 'hiddify-ios'},
+            {label: 'V2Box', value: 'v2box-ios'},
+            {label: 'Смена региона AppStore', value: 'region-ios'}
         ],
         android: [
-            { label: 'Hiddify', value: 'hiddify-android' },
-            { label: 'V2Box', value: 'v2box-android' }
+            {label: 'Hiddify', value: 'hiddify-android'},
+            {label: 'V2Box', value: 'v2box-android'}
         ],
         pc: [
-            { label: 'Hiddify', value: 'hiddify-pc' }
+            {label: 'Hiddify', value: 'hiddify-pc'}
         ]
     };
 
@@ -260,6 +358,74 @@
             toggleButton.textContent = 'Показать другие варианты';
         }
     }
+</script>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const configParam = params.get('config');
+
+    if (configParam) {
+        document.querySelectorAll('.action-button-connect').forEach(btn => {
+            const section = btn.closest('.video-section');
+            if (!section) return;
+
+            const id = section.id.toLowerCase();
+            if (id.includes('hiddify')) {
+                btn.href = `hiddify://import/${decodeURIComponent(configParam)}`;
+            } else if (id.includes('v2box')) {
+                btn.href = `${decodeURIComponent(configParam)}`;
+            } else {
+                // fallback (например, для region-ios)
+                btn.href = `${decodeURIComponent(configParam)}`;
+            }
+        });
+    }
+</script>
+
+<script>
+    document.querySelectorAll('.custom-video-wrapper').forEach(wrapper => {
+        const video = wrapper.querySelector('video');
+        const playPauseBtn = wrapper.querySelector('.play-pause');
+        const fullscreenBtn = wrapper.querySelector('.fullscreen');
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = '⏸';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        }
+
+        // По кнопке ▶ / ⏸
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // чтобы не срабатывал клик по видео
+            togglePlay();
+        });
+
+        // По клику на само видео
+        video.addEventListener('click', () => {
+            togglePlay();
+        });
+
+        // Кнопка полноэкранного режима
+        fullscreenBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        });
+
+        // Возврат иконки ▶ после окончания видео
+        video.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶';
+        });
+    });
 </script>
 </body>
 </html>

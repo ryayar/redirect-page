@@ -61,7 +61,7 @@ header {
     padding: 1rem;
     background: white;
     border-radius: 1rem;
-    box-shadow: 0 0.5rem 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 
 .button-group {
@@ -121,20 +121,36 @@ header {
     margin: 0;
 }
 
-.action-button {
+.action-button-download {
     display: inline-block;
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
     text-decoration: none;
-    background: #28a745;
+    background: #28a745; /* Зеленый */
     color: white;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
 
-.action-button:hover {
+.action-button-download:hover {
     background: #218838;
 }
+
+.action-button-connect {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    background: #007bff; /* Синий */
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.action-button-connect:hover {
+    background: #0056b3;
+}
+
 
 .toggle-other-videos {
     display: block;
@@ -143,7 +159,7 @@ header {
     font-size: 1rem;
     cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     background: #6c757d;
     color: white;
     width: fit-content;
@@ -181,4 +197,43 @@ h2 {
     .action-button {
         width: fit-content;
     }
+}
+
+.custom-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.custom-controls {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    z-index: 2;
+}
+
+.custom-controls button {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 2.5rem;
+    height: 2rem;
+    /*padding: 0.3rem 0.6rem;*/
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.custom-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+video {
+    width: 100%;
+    border-radius: 1rem;
+    display: block;
 }
