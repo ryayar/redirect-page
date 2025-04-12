@@ -27,7 +27,6 @@
             }
         });
     </script>
-    <script src="../../bot_watcher/frontend/nuxt.config.ts"></script>
 </head>
 <body>
 <header>
@@ -50,76 +49,125 @@
     </div>
 
     <div id="instructions">
-        <div id="hiddifi-ios" class="video-section">
-            <h2>Hiddifi iOS</h2>
-            <div class="video">
-                <video controls src="./videos/ios-hiddify-button.mp4"></video>
+        <!-- Hiddify iOS -->
+        <div id="hiddify-ios" class="video-section">
+            <h2>Hiddify iOS</h2>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/ios-hiddify-button.mp4">Самый оптимальный вариант</video>
+                </div>
+                <div class="action-container">
+                    <p class="important-text">ВАЖНО!<br><br>Для скачивания Hiddify, необходимо сменить регион AppStore</p>
+                    <a href="https://example.com" class="action-button">Подключить VPN</a>
+                </div>
             </div>
-            <div class="video">
-                <video controls src="./videos/ios-hiddify-link.mp4"></video>
-            </div>
-            <div class="video">
-                <video controls src="./videos/ios-hiddify-qr.mp4"></video>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-ios')">Показать другие варианты
+            </button>
+            <div class="other-videos">
+                <div class="video">
+                    <video controls src="./videos/ios-hiddify-link.mp4"></video>
+                </div>
+                <div class="video">
+                    <video controls src="./videos/ios-hiddify-qr.mp4"></video>
+                </div>
             </div>
         </div>
 
+        <!-- V2Box iOS -->
         <div id="v2box-ios" class="video-section">
             <h2>V2Box iOS</h2>
-<!--            <div class="video">-->
-<!--                <video controls src="videos/ios-v2box-button.mp4"></video>-->
-<!--            </div>-->
-<!--            <div class="video">-->
-<!--                <video controls src="videos/ios-v2box-link.mp4"></video>-->
-<!--            </div>-->
-            <div class="video">
-                <video controls src="videos/ios-v2box-qr.mp4"></video>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/ios-v2box-button.mp4"></video>
+                </div>
+                <a href="https://example.com" class="action-button">Подключить VPN</a>
+            </div>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-ios')">Показать другие варианты
+            </button>
+            <div class="other-videos">
+                <div class="video">
+                    <video controls src="./videos/ios-v2box-link.mp4"></video>
+                </div>
+                <div class="video">
+                    <video controls src="./videos/ios-v2box-qr.mp4"></video>
+                </div>
             </div>
         </div>
 
-        <div id="hiddifi-android" class="video-section">
-            <h2>Hiddifi Android</h2>
-            <div class="video">
-                <video controls src="videos/android-hiddify-button.mp4"></video>
+        <!-- Hiddify Android -->
+        <div id="hiddify-android" class="video-section">
+            <h2>Hiddify Android</h2>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/android-hiddify-button.mp4"></video>
+                </div>
+                <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <div class="video">
-                <video controls src="videos/android-hiddify-link.mp4"></video>
-            </div>
-            <div class="video">
-                <video controls src="videos/android-hiddify-qr.mp4"></video>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-android')">Показать другие
+                варианты
+            </button>
+            <div class="other-videos">
+                <div class="video">
+                    <video controls src="./videos/android-hiddify-link.mp4"></video>
+                </div>
+                <div class="video">
+                    <video controls src="./videos/android-hiddify-qr.mp4"></video>
+                </div>
             </div>
         </div>
 
+        <!-- V2Box Android -->
         <div id="v2box-android" class="video-section">
             <h2>V2Box Android</h2>
-<!--            <div class="video">-->
-<!--                <video controls src="videos/android-v2box-button.mp4"></video>-->
-<!--            </div>-->
-            <div class="video">
-                <video controls src="videos/android-v2box-link.mp4"></video>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/android-v2box-button.mp4"></video>
+                </div>
+                <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <div class="video">
-                <video controls src="videos/android-v2box-qr.mp4"></video>
-            </div>
-            <div class="application">
-                <a href="./videos/V2Box+-+V2ray+Client_2.3.0.apk">Приложение V2Box</a>
-            </div>
-        </div>
-
-        <div id="hiddifi-pc" class="video-section">
-            <h2>Hiddifi ПК</h2>
-            <div class="video">
-                <video controls src="videos/pc-hiddify-button.mp4"></video>
-            </div>
-            <div class="video">
-                <video controls src="videos/pc-hiddify-link.mp4"></video>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-android')">Показать другие варианты
+            </button>
+            <div class="other-videos">
+                <div class="video">
+                    <video controls src="./videos/android-v2box-link.mp4"></video>
+                </div>
+                <div class="video">
+                    <video controls src="./videos/android-v2box-qr.mp4"></video>
+                </div>
+                <div class="application">
+                    <a href="./videos/V2Box+-+V2ray+Client_2.3.0.apk">Приложение V2Box</a>
+                </div>
             </div>
         </div>
 
+        <!-- Hiddify PC -->
+        <div id="hiddify-pc" class="video-section">
+            <h2>Hiddify ПК</h2>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/pc-hiddify-button.mp4"></video>
+                </div>
+                <a href="https://example.com" class="action-button">Подключить VPN</a>
+            </div>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-pc')">Показать другие варианты
+            </button>
+            <div class="other-videos">
+                <div class="video">
+                    <video controls src="./videos/pc-hiddify-link.mp4"></video>
+                </div>
+            </div>
+        </div>
+
+        <!-- Region iOS -->
         <div id="region-ios" class="video-section">
             <h2>Смена региона AppStore</h2>
-            <div class="video">
-                <video controls src="videos/ios-change-region.mp4"></video>
+            <div class="main-video-container">
+                <div class="video main-video">
+                    <video controls src="./videos/ios-change-region.mp4"></video>
+                </div>
+                <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
+            <!-- Нет других видео, поэтому кнопка не нужна -->
         </div>
     </div>
 </div>
@@ -127,16 +175,16 @@
 <script>
     const appOptions = {
         ios: [
-            {label: 'Hiddifi', value: 'hiddifi-ios'},
+            {label: 'Hiddify', value: 'hiddify-ios'},
             {label: 'V2Box', value: 'v2box-ios'},
             {label: 'Смена региона AppStore', value: 'region-ios'}
         ],
         android: [
-            {label: 'Hiddifi', value: 'hiddifi-android'},
+            {label: 'Hiddify', value: 'hiddify-android'},
             {label: 'V2Box', value: 'v2box-android'}
         ],
         pc: [
-            {label: 'Hiddifi', value: 'hiddifi-pc'}
+            {label: 'Hiddify', value: 'hiddify-pc'}
         ]
     };
 
@@ -158,13 +206,50 @@
         }
 
         // Скрыть все видеоинструкции при смене платформы
-        document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.video-section').forEach(el => {
+            el.style.display = 'none';
+            // Сбрасываем состояние скрытых видео
+            const otherVideos = el.querySelector('.other-videos');
+            if (otherVideos) {
+                otherVideos.style.display = 'none';
+            }
+            const toggleButton = el.querySelector('.toggle-other-videos');
+            if (toggleButton) {
+                toggleButton.textContent = 'Показать другие варианты';
+            }
+        });
     }
 
     function showInstructions(id) {
-        document.querySelectorAll('.video-section').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.video-section').forEach(el => {
+            el.style.display = 'none';
+            // Сбрасываем состояние скрытых видео
+            const otherVideos = el.querySelector('.other-videos');
+            if (otherVideos) {
+                otherVideos.style.display = 'none';
+            }
+            const toggleButton = el.querySelector('.toggle-other-videos');
+            if (toggleButton) {
+                toggleButton.textContent = 'Показать другие варианты';
+            }
+        });
         const section = document.getElementById(id);
-        if (section) section.style.display = 'block';
+        if (section) {
+            section.style.display = 'block';
+        }
+    }
+
+    function toggleOtherVideos(sectionId) {
+        const section = document.getElementById(sectionId);
+        const otherVideos = section.querySelector('.other-videos');
+        const toggleButton = section.querySelector('.toggle-other-videos');
+        if (otherVideos.style.display === 'none' || otherVideos.style.display === '') {
+            otherVideos.style.display = 'flex';
+            toggleButton.textContent = 'Скрыть другие варианты';
+        } else {
+            otherVideos.style.display = 'none';
+            toggleButton.textContent = 'Показать другие варианты';
+        }
     }
 </script>
 </body>

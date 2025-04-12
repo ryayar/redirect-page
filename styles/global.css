@@ -60,7 +60,7 @@ header {
 
 .container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: calc(var(--tg-content-safe-area-inset-top, 0px) + 2rem) auto 2rem;
     padding: 1rem;
     background: white;
     border-radius: 8px;
@@ -90,15 +90,93 @@ header {
     display: none;
 }
 
+.main-video-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.main-video {
+    flex: 1;
+    min-width: 10rem;
+    max-width: 15rem;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 10rem;
+}
+
+.important-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #dc3545;
+    margin: 0;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    background: #28a745;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background: #218838;
+}
+
+.toggle-other-videos {
+    display: block;
+    margin: 1rem 0;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background: #6c757d;
+    color: white;
+    width: fit-content;
+}
+
+.toggle-other-videos:hover {
+    background: #5a6268;
+}
+
+.other-videos {
+    display: none;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
 .video {
-    margin-bottom: 1.5rem;
+    width: 10rem;
 }
 
 video {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 1rem;
 }
 
 h2 {
     margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    .action-container {
+        align-items: center;
+        width: 100%;
+    }
+    .action-button {
+        width: fit-content;
+    }
 }
