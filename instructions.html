@@ -42,9 +42,7 @@
 
     <div id="app-description" class="hidden">
         <h2>Шаг 2: Выберите приложение</h2>
-        <p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для большинства
-            пользователей.</p>
-        <p><strong>V2Box</strong> — более продвинутое приложение с гибкими настройками для опытных пользователей.</p>
+        <div id="platform-description"></div>
         <div class="button-group" id="app-buttons"></div>
     </div>
 
@@ -61,8 +59,7 @@
                     <a href="https://example.com" class="action-button">Подключить VPN</a>
                 </div>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-ios')">Показать другие варианты
-            </button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-ios')">Показать другие варианты</button>
             <div class="other-videos">
                 <div class="video">
                     <video controls src="./videos/ios-hiddify-link.mp4"></video>
@@ -82,8 +79,7 @@
                 </div>
                 <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-ios')">Показать другие варианты
-            </button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-ios')">Показать другие варианты</button>
             <div class="other-videos">
                 <div class="video">
                     <video controls src="./videos/ios-v2box-link.mp4"></video>
@@ -103,9 +99,7 @@
                 </div>
                 <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-android')">Показать другие
-                варианты
-            </button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-android')">Показать другие варианты</button>
             <div class="other-videos">
                 <div class="video">
                     <video controls src="./videos/android-hiddify-link.mp4"></video>
@@ -125,8 +119,7 @@
                 </div>
                 <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-android')">Показать другие варианты
-            </button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('v2box-android')">Показать другие варианты</button>
             <div class="other-videos">
                 <div class="video">
                     <video controls src="./videos/android-v2box-link.mp4"></video>
@@ -149,8 +142,7 @@
                 </div>
                 <a href="https://example.com" class="action-button">Подключить VPN</a>
             </div>
-            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-pc')">Показать другие варианты
-            </button>
+            <button class="toggle-other-videos" onclick="toggleOtherVideos('hiddify-pc')">Показать другие варианты</button>
             <div class="other-videos">
                 <div class="video">
                     <video controls src="./videos/pc-hiddify-link.mp4"></video>
@@ -175,31 +167,50 @@
 <script>
     const appOptions = {
         ios: [
-            {label: 'Hiddify', value: 'hiddify-ios'},
-            {label: 'V2Box', value: 'v2box-ios'},
-            {label: 'Смена региона AppStore', value: 'region-ios'}
+            { label: 'Hiddify', value: 'hiddify-ios' },
+            { label: 'V2Box', value: 'v2box-ios' },
+            { label: 'Смена региона AppStore', value: 'region-ios' }
         ],
         android: [
-            {label: 'Hiddify', value: 'hiddify-android'},
-            {label: 'V2Box', value: 'v2box-android'}
+            { label: 'Hiddify', value: 'hiddify-android' },
+            { label: 'V2Box', value: 'v2box-android' }
         ],
         pc: [
-            {label: 'Hiddify', value: 'hiddify-pc'}
+            { label: 'Hiddify', value: 'hiddify-pc' }
         ]
+    };
+
+    const platformDescriptions = {
+        ios: `
+            <p class="important-text">ВАЖНО! Для скачивания Hiddify, необходимо сменить регион AppStore.</p><p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для большинства пользователей.</p>
+            <p><strong>V2Box</strong> — более продвинутое приложение с гибкими настройками для опытных пользователей.</p>
+        `,
+        android: `
+            <p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для большинства пользователей.</p>
+            <p><strong>V2Box</strong> — более продвинутое приложение с гибкими настройками для опытных пользователей.</p>
+        `,
+        pc: `
+            <p><strong>Hiddify</strong> — простое и удобное приложение для подключения к VPN, рекомендовано для пользователей ПК.</p>
+        `
     };
 
     function selectPlatform(platform) {
         const appDesc = document.getElementById('app-description');
         const appButtons = document.getElementById('app-buttons');
+        const platformDesc = document.getElementById('platform-description');
         appButtons.innerHTML = '';
+        platformDesc.innerHTML = '';
 
         if (appOptions[platform]) {
+            // Заполняем кнопки приложений
             appOptions[platform].forEach(app => {
                 const btn = document.createElement('button');
                 btn.textContent = app.label;
                 btn.onclick = () => showInstructions(app.value);
                 appButtons.appendChild(btn);
             });
+            // Устанавливаем описание платформы
+            platformDesc.innerHTML = platformDescriptions[platform] || '';
             appDesc.classList.remove('hidden');
         } else {
             appDesc.classList.add('hidden');
@@ -208,7 +219,6 @@
         // Скрыть все видеоинструкции при смене платформы
         document.querySelectorAll('.video-section').forEach(el => {
             el.style.display = 'none';
-            // Сбрасываем состояние скрытых видео
             const otherVideos = el.querySelector('.other-videos');
             if (otherVideos) {
                 otherVideos.style.display = 'none';
@@ -223,7 +233,6 @@
     function showInstructions(id) {
         document.querySelectorAll('.video-section').forEach(el => {
             el.style.display = 'none';
-            // Сбрасываем состояние скрытых видео
             const otherVideos = el.querySelector('.other-videos');
             if (otherVideos) {
                 otherVideos.style.display = 'none';

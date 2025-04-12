@@ -1,44 +1,41 @@
-@import 'tailwindcss/tailwind.css';
-@import 'primeicons/primeicons.css';
-
 @font-face {
     font-family: 'SF Pro Display';
-    src: url("/assets/styles/fonts/SF-Pro-Display-Regular.woff2") format('woff2');
+    src: url("./fonts/SF-Pro-Display-Regular.woff2") format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/assets/styles/fonts/SF-Pro-Display-RegularItalic.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-RegularItalic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/assets/styles/fonts/SF-Pro-Display-Bold.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/assets/styles/fonts/SF-Pro-Display-BoldItalic.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-BoldItalic.woff2') format('woff2');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/assets/styles/fonts/SF-Pro-Display-Light.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('/assets/styles/fonts/SF-Pro-Display-LightItalic.woff2') format('woff2');
+    src: url('./fonts/SF-Pro-Display-LightItalic.woff2') format('woff2');
     font-weight: 300;
     font-style: italic;
 }
@@ -63,17 +60,22 @@ header {
     margin: calc(var(--tg-content-safe-area-inset-top, 0px) + 2rem) auto 2rem;
     padding: 1rem;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 10px rgba(0, 0, 0, 0.05);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 
 .button-group button {
-    margin: 0.5rem 0.5rem 1rem 0;
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
     cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     background: #007bff;
     color: white;
 }
@@ -173,9 +175,9 @@ h2 {
 
 @media (max-width: 600px) {
     .action-container {
-        align-items: center;
         width: 100%;
     }
+
     .action-button {
         width: fit-content;
     }
