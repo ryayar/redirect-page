@@ -371,8 +371,10 @@
 
             const id = section.id.toLowerCase();
             if (id.includes('hiddify')) {
+                alert(decodeURIComponent(configParam))
                 btn.href = `hiddify://import/${decodeURIComponent(configParam)}`;
             } else if (id.includes('v2box')) {
+                alert(decodeURIComponent(configParam))
                 btn.href = `${decodeURIComponent(configParam)}`;
             } else {
                 // fallback (например, для region-ios)
