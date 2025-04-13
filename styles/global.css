@@ -186,6 +186,15 @@ video {
     width: 10rem;
 }
 
+.vk-video {
+    width: 100%;
+    height: 33rem;
+    border-radius: 1rem; /* Скругленные углы, как у video */
+    border: none; /* Убираем стандартную рамку */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    aspect-ratio: 16 / 9; /* Пропорции видео */
+}
+
 @media (max-width: 600px) {
     .action-container {
         width: 100%;
