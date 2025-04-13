@@ -10,7 +10,7 @@
             const config = urlParams.get('config');
             
             if (config) {
-                alert(decodeURIComponent(config))
+                alert(config)
                 window.location.href = decodeURIComponent(config);
                 setTimeout(() => {
                     window.close();
