@@ -192,8 +192,9 @@
                 },
             ];
 
-            const params = new URLSearchParams(window.location.search);
-            const config = params.get('config');
+            const config = window.location.hash
+                ? decodeURIComponent(window.location.hash.slice(1))
+                : null;
             const grid = document.getElementById('apps-grid');
             const status = document.getElementById('status');
 
