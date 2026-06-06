@@ -99,8 +99,10 @@
         }
 
         .app-btn .app-icon {
-            font-size: 28px;
-            line-height: 1;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: cover;
         }
 
         .app-btn .app-name {
@@ -170,22 +172,22 @@
             const apps = [
                 {
                     name: 'V2RayTun',
-                    icon: '🌐',
+                    icon: 'icon/v2raytun.webp',
                     buildUrl: (link) => `v2raytun://import/${encodeURIComponent(link)}`,
                 },
                 {
                     name: 'Hiddify',
-                    icon: '🛡️',
+                    icon: 'icon/hiddify.webp',
                     buildUrl: (link) => `hiddify://import/${encodeURIComponent(link)}`,
                 },
                 {
                     name: 'V2Box',
-                    icon: '📦',
+                    icon: 'icon/v2box.webp',
                     buildUrl: (link) => `v2box://install-sub?url=${encodeURIComponent(link)}`,
                 },
                 {
                     name: 'Happ',
-                    icon: '⚡️',
+                    icon: 'icon/happ.webp',
                     buildUrl: (link) => `happ://add?url=${encodeURIComponent(link)}`,
                 },
             ];
@@ -228,7 +230,7 @@
                 btn.className = 'app-btn';
                 btn.href = app.buildUrl(config);
                 btn.innerHTML = `
-                    <span class="app-icon">${app.icon}</span>
+                    <img class="app-icon" src="${app.icon}" alt="${app.name}">
                     <span class="app-name">${app.name}</span>
                 `;
 
