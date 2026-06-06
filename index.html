@@ -2,50 +2,251 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Открыть в приложении</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100dvh;
+            background: #0d0d14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 20px;
+        }
+
+        .card {
+            background: #16161f;
+            border: 1px solid #2a2a3a;
+            border-radius: 24px;
+            padding: 32px 24px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #6c63ff, #4facfe);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 26px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .subtitle {
+            color: #6b6b80;
+            font-size: 13px;
+            text-align: center;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .app-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 18px 12px;
+            background: #1e1e2e;
+            border: 1px solid #2a2a3a;
+            border-radius: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #e0e0f0;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.15s, border-color 0.15s, transform 0.1s;
+            user-select: none;
+        }
+
+        .app-btn:active {
+            transform: scale(0.96);
+            background: #252535;
+        }
+
+        .app-btn.pressed {
+            background: #252535;
+            border-color: #6c63ff;
+        }
+
+        .app-btn .app-icon {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .app-btn .app-name {
+            color: #c0c0d8;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .divider {
+            height: 1px;
+            background: #2a2a3a;
+            margin: 4px 0 20px;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 13px;
+            color: #6b6b80;
+            min-height: 20px;
+            transition: color 0.3s;
+        }
+
+        .status.countdown {
+            color: #6c63ff;
+        }
+
+        .error {
+            color: #ff6b6b;
+            text-align: center;
+            font-size: 15px;
+            padding: 16px;
+        }
+
+        @media (max-width: 340px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="icon">🔗</div>
+        <h1>Открыть в приложении</h1>
+        <p class="subtitle">Выберите приложение для добавления VPN-конфигурации</p>
+
+        <div class="apps-grid" id="apps-grid"></div>
+        <div class="divider"></div>
+        <div class="status" id="status">Выберите приложение</div>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        (function () {
+            // Инициализация Telegram WebApp если открыто внутри Telegram
             try {
-                if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+                if (window.Telegram?.WebApp) {
                     const tg = window.Telegram.WebApp;
                     tg.ready();
                     tg.expand();
                     tg.disableVerticalSwipes();
-
-                    // if (tg.requestFullscreen) {
-                    //     tg.requestFullscreen();
-                    //     window.Telegram.WebApp.disableClosingConfirmation();
-                    // } else {
-                    //     tg.expand();
-                    // }
                 }
-            } catch (e) {
-                console.error(e);
-            }
-        });
-    </script>
-    <script>
-        window.onload = function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const config = urlParams.get('config');
-            
-            if (config) {
+            } catch (e) {}
 
-                setTimeout(() => {
-                    window.location.href = decodeURIComponent(config);
-                }, 500); // Даем время на редирект, затем закрываем
-                setTimeout(() => {
-                    window.close();
-                }, 5000);
-            } else {
-                document.body.innerHTML = '<h1>Ошибка: параметр config отсутствует</h1>';
+            const CLOSE_DELAY_MS = 4000;
+
+            const apps = [
+                {
+                    name: 'V2RayTun',
+                    icon: '🌐',
+                    buildUrl: (link) => `v2raytun://import/${encodeURIComponent(link)}`,
+                },
+                {
+                    name: 'Hiddify',
+                    icon: '🛡️',
+                    buildUrl: (link) => `hiddify://import/${encodeURIComponent(link)}`,
+                },
+                {
+                    name: 'V2Box',
+                    icon: '📦',
+                    buildUrl: (link) => `v2box://install-sub?url=${encodeURIComponent(link)}`,
+                },
+                {
+                    name: 'Happ',
+                    icon: '⚡️',
+                    buildUrl: (link) => `happ://add?url=${encodeURIComponent(link)}`,
+                },
+            ];
+
+            const params = new URLSearchParams(window.location.search);
+            const config = params.get('config');
+            const grid = document.getElementById('apps-grid');
+            const status = document.getElementById('status');
+
+            if (!config) {
+                grid.innerHTML = '<p class="error">Ошибка: параметр config не найден</p>';
+                document.getElementById('card').style.gridColumn = '1 / -1';
+                return;
             }
-        };
+
+            let closeTimer = null;
+
+            function startCloseCountdown() {
+                let remaining = CLOSE_DELAY_MS / 1000;
+                status.className = 'status countdown';
+                status.textContent = `Закрытие через ${remaining} сек...`;
+
+                const interval = setInterval(() => {
+                    remaining -= 1;
+                    if (remaining <= 0) {
+                        clearInterval(interval);
+                        status.textContent = 'Закрываем...';
+                        try { window.close(); } catch (e) {}
+                        try { window.Telegram?.WebApp?.close(); } catch (e) {}
+                    } else {
+                        status.textContent = `Закрытие через ${remaining} сек...`;
+                    }
+                }, 1000);
+
+                closeTimer = interval;
+            }
+
+            apps.forEach((app) => {
+                const btn = document.createElement('a');
+                btn.className = 'app-btn';
+                btn.href = app.buildUrl(config);
+                btn.innerHTML = `
+                    <span class="app-icon">${app.icon}</span>
+                    <span class="app-name">${app.name}</span>
+                `;
+
+                btn.addEventListener('click', (e) => {
+                    if (closeTimer) clearInterval(closeTimer);
+
+                    document.querySelectorAll('.app-btn').forEach(b => b.classList.remove('pressed'));
+                    btn.classList.add('pressed');
+
+                    status.className = 'status';
+                    status.textContent = `Открываем ${app.name}...`;
+
+                    setTimeout(startCloseCountdown, 600);
+                });
+
+                grid.appendChild(btn);
+            });
+        })();
     </script>
-</head>
-<body>
-    <h1>Перенаправление...</h1>
 </body>
 </html>
